@@ -1,0 +1,133 @@
+h2 {
+    font-size: 2vh;
+}
+
+body {
+    font-size: 1vw;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 2vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* Stack child divs vertically */
+    align-items: center;
+    /* Center child divs horizontally */
+    justify-content: flex-start;
+    /* Align child divs to the top */
+    background-color: #f9f9f9;
+}
+
+.container {
+    font-size: 3vw;
+    width: 100%;
+    max-width: 1000px;
+    padding: 1.5vh;
+    margin: 0px;
+    box-sizing: border-box;
+    display: flex;
+    /* Add this to align the child divs horizontally */
+    justify-content: space-between;
+    /* Create space between child divs */
+    text-align: center;
+}
+
+.top-left {
+    padding: 1vw;
+    margin: 1.5vw;
+    display: block;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: flex-start;
+    justify-content: flex-start;
+    border: 3px solid #ccc;
+    border-radius: 2vh;
+}
+
+.top-right {
+    padding: 1vw;
+    margin: 1.5vw;
+    display: block;
+    border: 3px solid #cccccc;
+    box-sizing: border-box;
+    border-radius: 2vh;
+}
+
+.top-middle {
+    padding: 1vw;
+    margin: 1.5vw;
+    display: block;
+    border: 3px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 2vh;
+}
+
+.spreadsheet {
+    padding: 1vh;
+    margin: 1.5vh;
+    align-items: center;
+    border-radius: 2vh;
+    text-align: center;
+    font-size: 0.8vh;
+}
+
+label {
+    color: #111111;
+    font-weight: normal;
+    font-size: small;
+    display: inline-block;
+    padding-right: 5px;
+    padding-left: 5px;
+    border-radius: 10px;
+    font-weight: 400;
+    transition: color 0.3s, transform 0.3s;
+    transform-origin: center;
+    position: relative;
+}
+
+label input[type="radio"] {
+    margin-right: 5px;
+}
+
+label:hover,
+label:active {
+    color: #303030;
+    transform: scale(1.1);
+    font-weight: 550;
+}
+
+input[type="radio"]:checked + label {
+    color: #303030;
+    transform: scale(1.1);
+    font-weight: 550;
+    background-color: #111111;
+}
+
+button {
+    padding: 8px;
+    margin: 10px;
+    border-radius: 10px;
+    border-width: 2px;
+    font-size: 1.2vh;
+    border-color: #cccccc;
+    background-color: #ffffff;
+    color: #111111;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button:active,
+button:hover {
+    background-color: #aaaaaa;
+    color: #ffffff;
+}
+
+p {
+    margin: 3px;
+    text-align: center;
+}
+
+.notes {
+    margin: 15px;
+    padding-bottom: 20px;
+}

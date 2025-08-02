@@ -12,15 +12,15 @@ xhr.onload = function () {
 
 xhr.send();
 const checkboxes = document.querySelectorAll('input[type="radio"]');
-const primaryCheckboxes = document.querySelector(".top-middle");
-const secondaryCheckboxes = document.querySelector(".top-right");
+const primaryCheckboxes = document.querySelector(".top-middle-rad-div");
+const secondaryCheckboxes = document.querySelector(".top-right-rad-div");
 const tablediv = document.querySelector(".spreadsheet");
 
 checkboxes.forEach((checkbox) => {
     checkbox.addEventListener("change", (event) => {
         if (event.target.checked) {
-            primaryCheckboxes.innerHTML = "<h2>Επίλεξε τμήμα</h2>";
-            secondaryCheckboxes.innerHTML = "<h2>Επίλεξε κατεύθυνση</h2>";
+            primaryCheckboxes.innerHTML = "";
+            secondaryCheckboxes.innerHTML = "";
             const id = ["Α", "Β", "Γ"].indexOf(event.target.value);
             checkboxes.forEach((ch) => {
                 var temp_id = ["Α", "Β", "Γ"].indexOf(ch.value);
@@ -40,8 +40,8 @@ checkboxes.forEach((checkbox) => {
                 newRadioLabel("suboption2", suboption, false, secondaryCheckboxes);
             });
         } else {
-            primaryCheckboxes.innerHTML = "<h2>Επίλεξε τμήμα</h2>";
-            secondaryCheckboxes.innerHTML = "<h2>Επίλεξε κατεύθυνση</h2>";
+            primaryCheckboxes.innerHTML = "";
+            secondaryCheckboxes.innerHTML = "";
             checkboxes.forEach((ch) => {
                 ch.checked = false;
             });
@@ -143,10 +143,12 @@ function create_spreadsheet(data) {
                 td.style.backgroundColor = "#f0f0f0";
                 td.style.padding = "10px";
                 td.style.borderRadius = "3px";
+
                 tr.appendChild(td);
             } else {
                 let td = document.createElement("td");
-                td.innerText = jsonData[j - 1][i][0];
+                const txt = jsonData[j - 1][i][0]
+                td.innerText = txt;
                 if (jsonData[j - 1][i][1]) {
                     td.style.backgroundColor = "#d5ecf2";
                 } else {
@@ -157,8 +159,12 @@ function create_spreadsheet(data) {
                         td.innerText = "-";
                     }
                 }
+                td.style.cursor = 'pointer';
                 td.style.padding = "10px";
                 td.style.borderRadius = "3px";
+                td.addEventListener('click', () => {
+                    window.location.href = `/kathigites/#${txt}`;
+                });
                 tr.appendChild(td);
             }
             table.appendChild(tr); // Append the table row to the table
@@ -310,8 +316,8 @@ function processHash() {
             const radioElement = document.getElementById(hashArray[0][0]);
             radioElement.checked = true;
 
-            primaryCheckboxes.innerHTML = "<h2>Επίλεξε τμήμα</h2>";
-            secondaryCheckboxes.innerHTML = "<h2>Επίλεξε κατεύθυνση</h2>";
+            primaryCheckboxes.innerHTML = "";
+            secondaryCheckboxes.innerHTML = "";
             const id = ["Α", "Β", "Γ"].indexOf(hashArray[0][0]);
             checkboxes.forEach((ch) => {
                 var temp_id = ["Α", "Β", "Γ"].indexOf(ch.value);

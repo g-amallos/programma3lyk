@@ -12,47 +12,28 @@ body {
 
 .container {
     width: 100%;
-    max-width: 1000px;
-    padding: 1.5vh;
+    padding-top: 1.5vh;
     margin: 0px;
-    box-sizing: border-box;
-    display: inline-flex;
-    justify-content: center;
-    text-align: center;
-    align-items: stretch;
+    box-sizing: content-box;
+    display:contents;
+    justify-content: space-between;
+    float: left;
 }
 
-.top-left {
+.top {
+    /*align-content: center;*/
     padding: 1vw;
     margin: 1.5vw;
     display: block;
     align-items: center;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-content: flex-start;
+    align-content: center;
+    text-align: left;
     justify-content: flex-start;
+    box-sizing: border-box;
     border: 3px solid #ccc;
     border-radius: 1.5vw;
 }
 
-.top-right {
-    padding: 1vw;
-    margin: 1.5vw;
-    display: block;
-    border: 3px solid #cccccc;
-    box-sizing: border-box;
-    border-radius: 1.5vw;
-}
-
-
-.top-middle {
-    padding: 1vw;
-    margin: 1.5vw;
-    display: block;
-    border: 3px solid #ccc;
-    box-sizing: border-box;
-    border-radius: 1.5vw;
-}
 
 .spreadsheet {
     padding: 1vw;
@@ -61,6 +42,16 @@ body {
     border-radius: 1vw;
     text-align: center;
     font-size: 1.2vw;
+}
+
+.spreadsheet-title {
+    margin: 0.8vw;
+    margin-bottom: 0px;
+}
+
+h5 {
+    margin-top: 0.1vw;
+    margin-bottom: 1.2vw;
 }
 
 label {
@@ -85,7 +76,6 @@ label:hover,
 label:active {
     color: #303030;
     transform: scale(1.1);
-    cursor: pointer;
     font-weight: 550;
 }
 

@@ -111,28 +111,24 @@ function create_spreadsheet(data) {
     table.id = "table-id";
     var jsonData = timetable(data);
 
-    // Get the keys (column names) of the first object in the JSON data
     let cols = ["", "Δευτέρα", "Τρίτη", "Τετάρτη", "Πέμπτη", "Παρασκευή"];
 
-    // Create the header element
     let thead = document.createElement("thead");
     let tr = document.createElement("tr");
 
-    // Loop through the column names and create header cells
     cols.forEach((item) => {
         let th = document.createElement("th");
-        th.innerText = item; // Set the column name as the text of the header cell
+        th.innerText = item;
         if (item != "") {
             th.style.backgroundColor = "#f0f0f0";
             th.style.padding = "8px";
             th.style.borderRadius = "3px";
         }
-        tr.appendChild(th); // Append the header cell to the header row
+        tr.appendChild(th);
     });
-    thead.appendChild(tr); // Append the header row to the header
-    table.append(tr); // Append the header to the table
+    thead.appendChild(tr);
+    table.append(tr);
 
-    // Loop through the JSON data and create table rows
     for (let i = 0; i < 7; i++) {
         let tr = document.createElement("tr");
 
@@ -167,9 +163,9 @@ function create_spreadsheet(data) {
                 });
                 tr.appendChild(td);
             }
-            table.appendChild(tr); // Append the table row to the table
+            table.appendChild(tr);
         }
-        container.appendChild(table); // Append the table to the container element
+        container.appendChild(table);
     }
     let spr = document.getElementById("spreadsheet");
     spr.style.border = "3px solid #cccccc";
@@ -185,7 +181,7 @@ function create_spreadsheet(data) {
 
     const tempdiv = document.querySelector(".download");
     tempdiv.innerHTML = "";
-    // Create a button element
+
     const button1 = document.createElement("button");
     button1.textContent = "Κατέβασε το πρόγραμμα";
     button1.id = "downloadButton";
@@ -256,13 +252,9 @@ document.body.addEventListener("click", handleCheckboxClick);
 
 function captureElementAsImage() {
     const elementToCapture = document.getElementById("spreadsheet");
-
-    // Use html2canvas to capture the element as an image
     html2canvas(elementToCapture).then(function (canvas) {
-        // Convert the canvas to a data URL (PNG format)
         const dataURL = canvas.toDataURL("image/png");
 
-        // Create a download link
         const downloadLink = document.createElement("a");
         downloadLink.href = dataURL;
         downloadLink.download = "Programma.png";
@@ -272,7 +264,6 @@ function captureElementAsImage() {
 }
 
 function captureAndDownloadTable() {
-    // Create a canvas with double-resolution.
     const element = document.getElementById("spreadsheet");
     html2canvas(element, {
         scale: 3,

@@ -159,7 +159,7 @@ function create_spreadsheet(data) {
                 td.style.padding = "10px";
                 td.style.borderRadius = "3px";
                 td.addEventListener('click', () => {
-                    window.location.href = `/kathigites/#${txt}`;
+                    window.location.href = `kathigites/#${txt}`;
                 });
                 tr.appendChild(td);
             }

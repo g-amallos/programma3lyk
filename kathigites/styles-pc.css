@@ -76,6 +76,7 @@ label:hover,
 label:active {
     color: #303030;
     transform: scale(1.1);
+    cursor: pointer;
     font-weight: 550;
 }
 

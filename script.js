@@ -143,24 +143,40 @@ function create_spreadsheet(data) {
                 tr.appendChild(td);
             } else {
                 let td = document.createElement("td");
-                const txt = jsonData[j - 1][i][0]
+                const txt = jsonData[j - 1][i][0];
                 td.innerText = txt;
                 if (jsonData[j - 1][i][1]) {
                     td.style.backgroundColor = "#d5ecf2";
                 } else {
-                    if (jsonData[j - 1][i][0].length > 0) {
+                    if (txt.length > 0) {
                         td.style.backgroundColor = "#e8eaeb";
                     } else {
                         td.style.backgroundColor = "#d3d5d6";
                         td.innerText = "-";
                     }
                 }
-                td.style.cursor = 'pointer';
+
                 td.style.padding = "10px";
                 td.style.borderRadius = "3px";
-                td.addEventListener('click', () => {
-                    window.location.href = `kathigites/#${txt}`;
-                });
+                if (txt.length > 0) {
+                    td.style.cursor = 'pointer';
+                    const oc = td.style.backgroundColor;
+                    td.addEventListener('mouseenter', () => {
+                        if (jsonData[j-1][i][1]) {
+                            td.style.backgroundColor = "#b0d3dc";
+                        } else {
+                            td.style.backgroundColor = "#c3c5c6";
+                        }
+                    });
+
+                    td.addEventListener('mouseleave', () => {
+                        td.style.backgroundColor = oc;
+                    });
+                    td.addEventListener('click', () => {
+                        window.location.href = `kathigites/#${txt}`;
+                    });
+                }
+                td.style.transition = "all ease-in-out 0.15s";
                 tr.appendChild(td);
             }
             table.appendChild(tr);

@@ -4,6 +4,7 @@ This project was cloned from https://github.com/c0deGIO/programma3lyk
 This is a project for personal use. This was my first html / javascript project.
 The aim was to create a user-friendly site, to output your class' timetable instantly!
 You can view the original website here: https://c0degio.github.io/programma3lyk/
+
 You can view the current website here: https://g-amallos.github.io/programma3lyk/
 
 Sources:

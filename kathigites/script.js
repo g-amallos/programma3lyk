@@ -27,21 +27,24 @@ function setupRadios() {
 
 function timetable(data) {
     const teachers = jsonDATA["teachers"];
+    const third = jsonDATA['classes']['third'][1].concat(jsonDATA['classes']['third'][2]);
+    console.log(third);
     if (teachers.includes(data)) {
         const idx = teachers.indexOf(data);
         var spreadsheet = [];
         for (let i = 0; i < 5; i++) {
             var day = [];
             for (let j = 0; j < 7; j++) {
-                var s = jsonDATA["timetable"][i*7+j][idx];
+                const s = jsonDATA["timetable"][i*7+j][idx];
                 if (s.length>0) {
-                    day.push(s);
+                    day.push([s, s.every(item => third.includes(item))]);
                 } else {
                     day.push(null);
                 }
             }
             spreadsheet.push(day);
         }
+        console.log(spreadsheet);
         return spreadsheet;
     }
     return null
@@ -86,8 +89,13 @@ function create_spreadsheet(data) {
             } else {
                 let td = document.createElement("td");
                 if (jsonData[j - 1][i] !== null) {
-                    td.style.backgroundColor = "#e8eaeb";
-                    td.innerText = jsonData[j - 1][i].join(", ");
+                    
+                    td.innerText = jsonData[j - 1][i][0].join(", ");
+                    if (jsonData[j - 1][i][1]) {
+                        td.style.backgroundColor = "#d5ecf2";
+                    } else {
+                        td.style.backgroundColor = "#e8eaeb";
+                    }
                 } else {
                     td.style.backgroundColor = "#d3d5d6";
                     td.innerText = "-";
@@ -108,7 +116,7 @@ function create_spreadsheet(data) {
 
     const tempdiv = document.querySelector(".download");
     tempdiv.innerHTML = "";
-    // Create a button element
+
     const button1 = document.createElement("button");
     button1.textContent = "Κατέβασε το πρόγραμμα";
     button1.id = "downloadButton";

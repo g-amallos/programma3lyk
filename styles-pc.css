@@ -115,6 +115,16 @@ button:hover {
     color: #ffffff;
 }
 
+.spreadsheet-title {
+    margin: 0.8vw;
+    margin-bottom: 0px;
+}
+
+h5 {
+    margin-top: 0.1vw;
+    margin-bottom: 1.2vw;
+}
+
 p {
     margin: 3px;
     text-align: center;

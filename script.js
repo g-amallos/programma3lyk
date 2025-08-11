@@ -106,7 +106,13 @@ function timetable(data) {
 
 function create_spreadsheet(data) {
     let container = tablediv;
-    container.innerHTML = "<h2>Πρόγραμμα</h2>";
+    let txt;
+    if (String(data[0]).startsWith("Α")) {
+        txt = String(data[0]).toUpperCase();
+    } else {
+        txt = `${String(data[0]).toUpperCase()} / ${String(data[1]).toUpperCase()}`;
+    }
+    container.innerHTML = '<h2 class="spreadsheet-title">Πρόγραμμα</h2><h5>('+txt+")</h5>";
     let table = document.createElement("table");
     table.id = "table-id";
     var jsonData = timetable(data);
